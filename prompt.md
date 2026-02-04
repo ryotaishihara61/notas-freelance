@@ -1,10 +1,28 @@
-# 修正指示：metadataBaseの設定追加
+# 緊急指示：Cloudflare Pages移行のための設定変更
 
-`src/app/layout.tsx` の `metadata` 設定において、`metadataBase` プロパティが不足しているため警告が出ています。
-以下のように、本番URLを基準URLとして設定してください。
+商用利用のため、ホスティング先をVercelからCloudflare Pages（静的サイトホスティング）に変更します。
+それに伴い、`next.config.ts` を以下の仕様に書き換えてください。
 
-## 修正内容
-`export const metadata: Metadata = {` の中に、以下の行を追加してください。
+## 1. 静的エクスポート設定 (Static Export)
+Cloudflare Pagesで動作させるため、`nextConfig` に以下を追加・変更してください。
 
 ```typescript
-metadataBase: new URL('[https://freelance.notas.co.jp](https://freelance.notas.co.jp)'),
+const nextConfig: NextConfig = {
+  // 静的HTMLとして出力する設定
+  output: 'export',
+  
+  // Cloudflareの無料枠ではNext.jsの画像最適化が使えないため無効化
+  images: {
+    unoptimized: true,
+  },
+  
+  // ビルドエラー無視設定（前回追加したものは維持）
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
+  // ※注意: output: 'export' では redirects() が使えなくなるため削除してください。
+};
