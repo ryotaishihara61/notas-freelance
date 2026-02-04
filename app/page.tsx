@@ -401,11 +401,11 @@ export default function Home() {
               <div className="pt-8">
                 <div className="mb-4">
                   <p className="font-bold text-lg mb-4" style={{ color: PRIMARY_RED }}>
-                    テレビタレント / 事業開発
+                    UIUXデザイナー / 海外輸出プロジェクト
                   </p>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-base">
-                  テレビタレントとして働きながら、ぶどうブランドの立ち上げを行いました。今まで築いた人脈や、芸能業界で様々なエンターテイメントに触れてきた経験を活かし、事業開発に携わることができています。経験を活かしながらチャレンジもできて、新たなキャリアを築けています。
+                  国が推進する農産物の海外輸出プロジェクトのブランディング、WEBディレクション、デザイン全般に携わりました。農産物の海外輸出は我が国の農業の重要課題の一つですので、大きなテーマでこれまでの経験を活かせたことはとても大きなやりがいになりました。
                 </p>
               </div>
             </motion.div>
