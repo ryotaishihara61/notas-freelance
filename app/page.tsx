@@ -449,7 +449,7 @@ export default function Home() {
             <motion.div {...fadeInUp}>
               <div className="mb-8">
                 <p className="text-lg text-gray-700 leading-relaxed mb-8">
-                  ノウタスは、「人生に農を足す」をテーマに、異業種からの参入や副業人材の活用を通じて、日本の農業の課題解決と新しい価値創造に取り組むアグリテック企業です。
+                  ノウタスは、「人生に農を足す」をテーマに、異業種からの参入や副業人材の活用を通じて、日本の農業の課題解決と新しい価値創造に取り組む企業です。
                   合言葉は「Win-WinよりもFun-Funに」。楽しみながら持続可能な農業の未来をつくります。
                 </p>
               </div>
