@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description: '農業や地方創生に特化した副業・フリーランス案件紹介サービス。エンジニア、マーケター、企画職など、あなたのスキルで日本の食と農の未来をつくりませんか？フルリモートや週1日からの案件も多数。',
     type: 'website',
     locale: 'ja_JP',
-    images: '/og-image.png',
+    images: '/og-image.png?v=fb_fix_01',
   },
 };
 
