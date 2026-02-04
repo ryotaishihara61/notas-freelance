@@ -1,28 +1,20 @@
-# 緊急指示：Cloudflare Pages移行のための設定変更
+# 緊急修正：ビルドエラーの解消
 
-商用利用のため、ホスティング先をVercelからCloudflare Pages（静的サイトホスティング）に変更します。
-それに伴い、`next.config.ts` を以下の仕様に書き換えてください。
+Cloudflare Pagesへのデプロイ時にエラーが発生しています。以下の2点を修正してください。
 
-## 1. 静的エクスポート設定 (Static Export)
-Cloudflare Pagesで動作させるため、`nextConfig` に以下を追加・変更してください。
+## 1. `next.config.ts` の修正
+Next.jsの最新仕様により、`nextConfig` 内の `eslint` キーが無効になりました。
+`next.config.ts` から `eslint: { ... }` のブロックを**完全に削除**してください。
 
-```typescript
-const nextConfig: NextConfig = {
-  // 静的HTMLとして出力する設定
-  output: 'export',
-  
-  // Cloudflareの無料枠ではNext.jsの画像最適化が使えないため無効化
-  images: {
-    unoptimized: true,
-  },
-  
-  // ビルドエラー無視設定（前回追加したものは維持）
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  
-  // ※注意: output: 'export' では redirects() が使えなくなるため削除してください。
-};
+## 2. `robots.ts` と `sitemap.ts` の静的化
+`output: 'export'` モードでは、動的なルートハンドラーが禁止されています。
+以下の2つのファイルの先頭に、**静的生成を強制する設定**を追加してください。
+
+- **対象ファイル:**
+  - `src/app/robots.ts`
+  - `src/app/sitemap.ts`
+
+- **追加内容:**
+  ファイルの最後（または`export default`の前）に、以下の1行を追加してください。
+  ```typescript
+  export const dynamic = 'force-static';
